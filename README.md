@@ -463,48 +463,7 @@ Distribution: {'11': 996, '00': 9, '01': 10, '10': 9}
 
 ---
 
-## Part 7 — Real-World Application: Fraud Detection
-
-Grover's algorithm is particularly suited for problems where:
-1. You can define a boolean function `f(x)` that recognizes the answer
-2. The search space N is very large
-3. Speed is critical
-
-**Scenario:** A central bank processes 4 billion transactions per month (e.g., Brazil's PIX system). One transaction is fraudulent. Identify it.
-
-```python
-def is_fraud(transaction):
-    """Oracle function — defines what we're looking for."""
-    return (
-        transaction.amount > 10_000 and
-        transaction.hour in range(0, 5) and   # unusual hours
-        transaction.country != transaction.usual_country
-    )
-```
-
-**Search complexity comparison:**
-
-| System | N (transactions) | Classical evaluations | Grover evaluations |
-|--------|------------------|-----------------------|--------------------|
-| Small bank | 100,000 | 100,000 | 316 |
-| Large bank | 10,000,000 | 10,000,000 | 3,142 |
-| Central bank | 4,000,000,000 | 4,000,000,000 | 100,000 |
-
-This represents a **40,000× speedup** at the scale of a central bank — potentially reducing fraud detection latency from seconds to milliseconds.
-
-**Current status of this application:**
-
-| Timeframe | Status |
-|-----------|--------|
-| Today | Proof-of-concept simulations (like this repo) |
-| ~5 years | Hybrid quantum-classical pilots in controlled environments |
-| ~10–15 years | Real-time quantum fraud detection on fault-tolerant hardware |
-
-Major financial institutions including JPMorgan Chase and BBVA already have active quantum computing research programs targeting exactly these use cases.
-
----
-
-## Part 8 — Classical vs Quantum: Benchmark
+## Part 7 — Classical vs Quantum: Benchmark
 
 ### Algorithm Complexity Summary
 
