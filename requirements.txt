@@ -1,0 +1,2 @@
+qiskit==2.4.1
+qiskit-aer==0.17.2
